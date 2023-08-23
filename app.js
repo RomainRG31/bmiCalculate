@@ -26,13 +26,22 @@ function calculateBMI() {
     handleError();
     return;
   }
-
   const BMI = (weight / Math.pow(height / 100, 2)).toFixed(1);
   console.log(BMI);
-  function handleError() {
-    const bmi = document.querySelector(".bmi-value");
-    const result = document.querySelector(".result");
-    bmi.textContent = "WOOPS";
-    result.textContent = "Veuillez remplir correctement les champs";
-  }
+
+  showResult(BMI);
+}
+
+function handleError() {
+  const bmi = document.querySelector(".bmi-value");
+  const result = document.querySelector(".result");
+  bmi.textContent = "WOOPS";
+  result.textContent = "Veuillez remplir correctement les champs";
+}
+
+function showResult(BMI) {
+  const rank = BMIData.find((data) => {
+    if (BMI >= data.range[0] && BMI <= data.range[1]) return data;
+  });
+  console.log(rank);
 }
