@@ -14,4 +14,14 @@ console.log(form);
 form.addEventListener("submit", handleForm);
 function handleForm(e) {
   e.preventDefault();
+
+  calculateBMI();
+}
+
+function calculateBMI() {
+  const input = document.querySelectorAll("input");
+  const height = input[0].value;
+  const weight = input[1].value;
+
+  console.log(height, weight);
 }
