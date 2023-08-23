@@ -9,7 +9,6 @@ const BMIData = [
 
 // IMC = poids en kg / taille² en m
 const form = document.querySelector("form");
-console.log(form);
 
 form.addEventListener("submit", handleForm);
 function handleForm(e) {
@@ -23,5 +22,17 @@ function calculateBMI() {
   const height = input[0].value;
   const weight = input[1].value;
 
-  console.log(height, weight);
+  if (!height || !weight || height <= 0 || weight <= 0) {
+    handleError();
+    return;
+  }
+
+  const BMI = (weight / Math.pow(height / 100, 2)).toFixed(1);
+  console.log(BMI);
+  function handleError() {
+    const bmi = document.querySelector(".bmi-value");
+    const result = document.querySelector(".result");
+    bmi.textContent = "WOOPS";
+    result.textContent = "Veuillez remplir correctement les champs";
+  }
 }
