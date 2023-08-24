@@ -1,4 +1,5 @@
 # app to calculate your bmi
 
-``bash Made in VanillaJS
-``
+```ruby
+Made in VanillaJS
+```
